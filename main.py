@@ -1,19 +1,11 @@
-import cv2
+from add import add_func # add.py를 foo가 작성하도록 함. 파라미터 2개
+from sub import sub_func # sub.py를 master가 작성. 파라미터 2개
 
-## 영상 이미지 읽기
-scr = cv2.imread('images/picture01.jpg')
+## 전역 변수부
+num1, num2, result = 100, 200, 0
 
-## 영상 처리 알고리즘 구현 ##
-dst1 = cv2.cvtColor(scr, cv2.COLOR_RGB2GRAY)
-dst2 = scr.copy()
-_ , dst2 = cv2.threshold(dst2, 127, 255, cv2.THRESH_BINARY)
-
-
-## 영상 디스플레이
-cv2.imshow('scr', scr)
-cv2.imshow('dst1', dst1)
-cv2.imshow('dst2', dst2)
-
-## 마무리
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+## 메인 코드부
+result = add_func(num1, num2)
+print(result)
+result = sub_func(num1, num2)
+print(result)
